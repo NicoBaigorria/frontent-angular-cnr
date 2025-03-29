@@ -1,0 +1,224 @@
+*{
+    font-family: sans-serif;
+}
+
+/* General styles for the card */
+.card {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.p-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.p-field label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.p-field input,
+.p-field-checkbox input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.p-field-checkbox label {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+/* Button styles */
+button[pButton] {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition for hover effects */
+    margin-right: 10px;
+    /* Add margin between buttons */
+}
+
+button[pButton]:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add a light shadow on hover */
+}
+
+/* Botón general */
+button.p-button {
+    border: none;
+    padding: 12px 20px; /* Espaciado interno más amplio */
+    border-radius: 8px; /* Bordes más redondeados */
+    font-size: 16px; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Texto en negrita */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Espaciado entre el icono y el texto */
+    color: white; /* Texto blanco */
+    background-color: #007bff; /* Fondo azul */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    width: fit-content;
+}
+
+/* Efecto hover */
+button.p-button:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    transform: translateY(-2px); /* Elevar ligeramente el botón */
+}
+
+/* Efecto activo */
+button.p-button:active {
+    background-color: #004085; /* Azul más oscuro al hacer clic */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra más pequeña */
+    transform: translateY(0); /* Volver a la posición original */
+}
+
+/* Icono del botón */
+button.p-button .p-button-icon {
+    font-size: 18px; /* Tamaño del icono */
+}
+
+/* Texto del botón */
+button.p-button .p-button-label {
+    font-size: 16px; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Sobrescribir estilos de la tabla de PrimeNG */
+:host ::ng-deep .p-datatable-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Evitar que los bordes redondeados se corten */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+:host ::ng-deep .p-datatable-thead > tr > th {
+    background-color: #007bff; /* Fondo azul para los encabezados */
+    color: white; /* Texto blanco */
+    font-weight: bold;
+    padding: 15px; /* Espaciado interno */
+    text-align: left;
+    border-bottom: 2px solid #0056b3; /* Línea inferior más oscura */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    font-size: 14px;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td {
+    padding: 15px; /* Espaciado interno */
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Línea inferior */
+    font-size: 14px;
+    color: #333; /* Texto oscuro */
+}
+
+/* Filas alternadas */
+:host ::ng-deep .p-datatable-tbody > tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo claro para filas pares */
+}
+
+/* Efecto hover en las filas */
+:host ::ng-deep .p-datatable-tbody > tr:hover {
+    background-color: #f1f1f1; /* Fondo más claro al pasar el cursor */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Estilo para la fila seleccionada */
+:host ::ng-deep .p-datatable-tbody > tr.selected {
+    background-color: #007bff; /* Fondo azul para la fila seleccionada */
+    color: white; /* Texto blanco */
+}
+
+/* Botones dentro de la tabla */
+:host ::ng-deep .p-datatable-tbody > tr > td button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el cursor */
+}
+
+/* Botones específicos */
+:host ::ng-deep .p-datatable-tbody > tr > td button.p-button-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td button.p-button-info:hover {
+    background-color: #138496;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td button.p-button-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td button.p-button-danger:hover {
+    background-color: #c82333;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td button.p-button-success {
+    background-color: #28a745;
+    color: white;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td button.p-button-success:hover {
+    background-color: #218838;
+}
+
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+.popup-content button {
+    margin-top: 10px;
+}
+
+.p-datatable-tbody>tr>td {
+    border: none !important;
+    /* Eliminar el borde de las celdas */
+    border-style: none !important;
+    /* Eliminar el borde de las celdas */
+}
+
+.error {
+    color: #dc3545; /* Rojo para los mensajes de error */
+    font-size: 12px;
+    margin-top: 5px;
+  }

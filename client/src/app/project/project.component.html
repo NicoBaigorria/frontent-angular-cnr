@@ -1,0 +1,155 @@
+<div class="card mb-3">
+    <h3>Crear Nuevo Proyecto</h3>
+    <form (submit)="createProject(); $event.preventDefault()" class="p-fluid" #projectForm="ngForm">
+      <div class="p-field">
+        <label for="id">ID</label>
+        <input
+          id="id"
+          type="number"
+          pInputText
+          [(ngModel)]="newProject.id"
+          name="id"
+          placeholder="ID del proyecto"
+          required
+          #id="ngModel"
+        />
+        <small *ngIf="id.invalid && id.touched" class="error">El ID es obligatorio.</small>
+      </div>
+      <div class="p-field">
+        <label for="uuid">UUID</label>
+        <input
+          id="uuid"
+          type="text"
+          pInputText
+          [(ngModel)]="newProject.uuid"
+          name="uuid"
+          placeholder="UUID del proyecto"
+          required
+          minlength="5"
+          maxlength="36"
+          #uuid="ngModel"
+        />
+        <small *ngIf="uuid.invalid && uuid.touched" class="error">
+          El UUID es obligatorio y debe tener entre 5 y 36 caracteres.
+        </small>
+      </div>
+      <div class="p-field">
+        <label for="nombre">Nombre</label>
+        <input
+          id="nombre"
+          type="text"
+          pInputText
+          [(ngModel)]="newProject.nombre"
+          name="nombre"
+          placeholder="Nombre del proyecto"
+          required
+          minlength="3"
+          #nombre="ngModel"
+        />
+        <small *ngIf="nombre.invalid && nombre.touched" class="error">
+          El nombre es obligatorio y debe tener al menos 3 caracteres.
+        </small>
+      </div>
+      <div class="p-field-checkbox">
+        <label for="status">Activo</label>
+        <input id="status" type="checkbox" [(ngModel)]="newProject.status" name="status" />
+      </div>
+      <button
+        pButton
+        type="submit"
+        label="Crear Proyecto"
+        icon="pi pi-plus"
+        [disabled]="projectForm.invalid"
+      ></button>
+    </form>
+  </div>
+
+<!-- Tabla para mostrar los proyectos -->
+<div class="card">
+    <p-table [value]="projects" [tableStyle]="{ 'min-width': '50rem' }">
+      <!-- Encabezado de la tabla -->
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Status</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+  
+      <!-- Cuerpo de la tabla -->
+      <ng-template pTemplate="body" let-project>
+        <tr>
+          <td>{{ project.id }}</td>
+          <td>{{ project.nombre }}</td>
+          <td>{{ project.status }}</td>
+          <td>
+            <button pButton type="button" label="Ver Detalles" class="p-button-info" (click)="viewDetails(project.id)"></button>
+            <button pButton type="button" label="Eliminar" class="p-button-danger" (click)="deleteProject(project.id)"></button>
+            <button pButton type="button" label="Agregar Detalle" class="p-button-success" (click)="openDetailForm(project)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  
+  <div *ngIf="showPopup" class="popup">
+    <div class="popup-content">
+      <h3>Agregar Detalle al Proyecto</h3>
+      <form (submit)="addProjectDetail(); $event.preventDefault()" class="p-fluid" #detailForm="ngForm">
+        <div class="p-field">
+          <label for="description">Descripción</label>
+          <input
+            id="description"
+            type="text"
+            pInputText
+            [(ngModel)]="newDetail.description"
+            name="description"
+            placeholder="Descripción"
+            required
+            minlength="5"
+            #description="ngModel"
+          />
+          <small *ngIf="description.invalid && description.touched" class="error">
+            La descripción es obligatoria y debe tener al menos 5 caracteres.
+          </small>
+        </div>
+        <div class="p-field">
+          <label for="area">Área</label>
+          <input
+            id="area"
+            type="number"
+            pInputText
+            [(ngModel)]="newDetail.area"
+            name="area"
+            placeholder="Área"
+            required
+            min="1"
+            #area="ngModel"
+          />
+          <small *ngIf="area.invalid && area.touched" class="error">
+            El área es obligatoria y debe ser un número mayor a 0.
+          </small>
+        </div>
+        <div class="p-field-checkbox">
+          <label for="status">Activo</label>
+          <input id="status" type="checkbox" [(ngModel)]="newDetail.status" name="status" />
+        </div>
+        <button
+          pButton
+          type="submit"
+          label="Guardar Detalle"
+          icon="pi pi-save"
+          [disabled]="detailForm.invalid"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Cancelar"
+          icon="pi pi-times"
+          class="p-button-secondary"
+          (click)="showPopup = false"
+        ></button>
+      </form>
+    </div>
+  </div>

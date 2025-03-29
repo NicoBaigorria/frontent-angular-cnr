@@ -1,0 +1,99 @@
+/* Contenedor principal de las tarjetas */
+.card-container {
+    padding: 20px;
+    background-color: #f9f9f9; /* Fondo claro para destacar las tarjetas */
+    border-radius: 10px; /* Bordes redondeados para el contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Diseño de la cuadrícula para las tarjetas */
+.p-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Estilo de las tarjetas */
+p-card {
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* Bordes más redondeados */
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 20px; /* Espaciado interno */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transición suave */
+    overflow: hidden; /* Evitar que el contenido desborde */
+    display: block !important;
+}
+
+p-card:hover {
+    transform: translateY(-8px); /* Elevar la tarjeta al pasar el cursor */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Imagen dentro de las tarjetas */
+p-card img {
+    border-radius: 8px;
+    margin-bottom: 15px;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Transición suave para la imagen */
+}
+
+p-card:hover img {
+    transform: scale(1.05); /* Ampliar ligeramente la imagen al pasar el cursor */
+}
+
+/* Fuente personalizada para los nombres de los Pokémon */
+p-card {
+    font-family: 'Press Start 2P', sans-serif !important; /* Aplicar la fuente personalizada */
+    font-size: 18px; /* Tamaño de fuente ajustado */
+    color: #333;
+    margin: 10px 0;
+    text-transform: capitalize; /* Asegurar que el texto esté capitalizado */
+}
+
+/* Estilo del texto de habilidades */
+p-card p {
+    font-family: Arial, sans-serif; /* Fuente secundaria para el texto */
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Estilo del paginador */
+:host ::ng-deep p-paginator {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:host ::ng-deep p-paginator .p-paginator-pages .p-paginator-page {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #007bff;
+    border-radius: 8px; /* Bordes redondeados */
+    width: 40px; /* Ajustar tamaño del botón */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #007bff; /* Borde azul */
+}
+
+:host ::ng-deep p-paginator .p-paginator-pages .p-paginator-page:hover {
+    background-color: #ffd700; /* Fondo dorado al pasar el cursor */
+    color: #000; /* Texto negro */
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.6); /* Sombra dorada */
+    border-color: #ffd700; /* Cambiar el color del borde */
+}
+
+:host ::ng-deep p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background-color: #007bff; /* Fondo azul para la página activa */
+    color: #fff; /* Texto blanco */
+    border-color: #0056b3; /* Borde más oscuro */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4); /* Sombra azul */
+}

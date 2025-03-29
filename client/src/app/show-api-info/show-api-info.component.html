@@ -1,0 +1,19 @@
+<div class="card-container">
+  <h2>Pokémon List</h2>
+  <div class="p-grid">
+    <div class="p-col-12 p-md-4" *ngFor="let pokemon of pokemonDetails">
+      <p-card [header]="pokemon.name | titlecase" [style]="{ width: '300px' }">
+        <img [src]="pokemon.image" alt="{{ pokemon.name }}" style="width: 100%; height: auto;" />
+        <p>{{ pokemon.abilities }}</p>
+      </p-card>
+    </div>
+  </div>
+
+  <!-- Paginador -->
+  <p-paginator
+    [rows]="pageSize"
+    [totalRecords]="totalPokemons"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    (onPageChange)="onPageChange($event)"
+  ></p-paginator>
+</div>
